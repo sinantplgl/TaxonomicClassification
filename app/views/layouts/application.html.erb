@@ -1,15 +1,130 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Classification</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Sabanci University | Taxonomy Catalog</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+
+    <!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="/global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
+	<link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="/assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
+	<link href="/assets/css/layout.min.css" rel="stylesheet" type="text/css">
+	<link href="/assets/css/components.min.css" rel="stylesheet" type="text/css">
+	<link href="/assets/css/colors.min.css" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+
+	<!-- Core JS files -->
+	<script src="/global_assets/js/main/jquery.min.js"></script>
+	<script src="/global_assets/js/main/bootstrap.bundle.min.js"></script>
+	<script src="/global_assets/js/plugins/loaders/blockui.min.js"></script>
+	<script src="/global_assets/js/plugins/ui/slinky.min.js"></script>
+	<script src="/global_assets/js/plugins/ui/fab.min.js"></script>
+	<script src="/global_assets/js/plugins/ui/ripple.min.js"></script>
+	<!-- /core JS files -->
+
+	<!-- Theme JS files -->
+	<script src="/global_assets/js/plugins/visualization/d3/d3.min.js"></script>
+	<script src="/global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+	<script src="/global_assets/js/plugins/forms/styling/switchery.min.js"></script>
+	<script src="/global_assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+	<script src="/global_assets/js/plugins/ui/moment/moment.min.js"></script>
+	<script src="/global_assets/js/plugins/pickers/daterangepicker.js"></script>
+  <script src="/global_assets/js/plugins/media/fancybox.min.js"></script>
+
+	<script src="/assets/js/app.js"></script>
+	<script src="/global_assets/js/demo_pages/dashboard.js"></script>
+  <script src="/global_assets/js/demo_pages/gallery.js"></script>
+	<!-- /theme JS files -->
   </head>
 
   <body>
-    <%= yield %>
+    <!-- Page header -->
+    <div class="page-header page-header-dark bg-green-800">
+      
+      <!-- Page header content -->
+      <%# <div class="page-header-content header-elements-md-inline">
+        <div class="page-title d-flex">
+          <h4>Dashboard <small class="font-size-base opacity-50">Good morning, Eugene</small></h4>
+          <a href="#" class="header-elements-toggle text-white d-md-none"><i class="icon-more"></i></a>
+        </div>
+      </div> %>
+      <!-- /page header content -->
+
+
+      <!-- Secondary navbar -->
+        <%= render partial: "layouts/components/navbar"%>
+      <!-- /secondary navbar -->
+
+
+      <!-- Floating menu -->
+      <ul class="fab-menu fab-menu-absolute fab-menu-top-right" data-fab-toggle="click">
+        <li>
+          <a class="fab-menu-btn btn bg-pink-300 btn-float rounded-round btn-icon">
+            <i class="fab-icon-open icon-plus3"></i>
+            <i class="fab-icon-close icon-cross2"></i>
+          </a>
+
+          <ul class="fab-menu-inner">
+            <li>
+              <div data-fab-label="Compose email">
+                <a href="#" class="btn btn-light rounded-round btn-icon btn-float">
+                  <i class="icon-pencil"></i>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div data-fab-label="Conversations">
+                <a href="#" class="btn btn-light rounded-round btn-icon btn-float">
+                  <i class="icon-bubbles7"></i>
+                </a>
+                <span class="badge badge-pill bg-primary-400">5</span>
+              </div>
+            </li>
+            <li>
+              <div data-fab-label="Chat with Jack">
+                <a href="#" class="btn bg-pink-400 rounded-round btn-icon btn-float">
+                  <img src="/global_assets/images/placeholders/placeholder.jpg" class="img-fluid rounded-circle" alt="">
+                </a>
+                <span class="badge badge-mark border-pink-400"></span>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <!-- /floating menu -->
+
+    </div>
+    <!-- /page header -->
+    
+    <!-- Page content -->
+    <div class="page-content">
+
+      <!-- Main content -->
+      <div class="content-wrapper">
+
+        <!-- Content area -->
+        <div class="content">
+
+
+          <%= yield %>
+          
+
+        </div>
+        <!-- /content area -->
+
+      </div>
+      <!-- /main content -->
+
+    </div>
+    <!-- /page content -->
   </body>
 </html>
