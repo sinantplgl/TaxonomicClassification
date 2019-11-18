@@ -9,7 +9,7 @@
                     </div>
                     <div class="form-group">
                         <select name="category[category_id]" class="form-control">
-                            <option>Select one...</option>
+                            <option value="">Select one...</option>
                             <% @categories.each do |item| %>
                                 <option value="<%= item.id %>"><%= item.slug %></option>
                             <% end %>
