@@ -1,26 +1,28 @@
 <div class="row">
-	<div class="col-sm-6 col-lg-3">
-		<div class="card">
-			<div class="card-body border-0 p-0">
-			<ul class="nav nav-sidebar mb-2">
-				<% @sub_categories.each do |category| %>
-					<li class="nav-item">
-						<a href="<%=category_detail_path(category.slug)%>" class="nav-link legitRipple"><%=category.name%></a>
-					</li>
-				<% end %>
-			</ul>
-			</div>
-		</div>
-	</div>
+    <% if @sub_categories.count != 0%>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card">
+                <div class="card-body border-0 p-0">
+                <ul class="nav nav-sidebar mb-2">
+                    <% @sub_categories.each do |category| %>
+                        <li class="nav-item">
+                            <a href="<%=category_detail_path(category.slug)%>" class="nav-link legitRipple"><%=category.name%></a>
+                        </li>
+                    <% end %>
+                </ul>
+                </div>
+            </div>
+        </div>
+    <% end %>
 	<div class="col-sm-6 col-lg-9">
 		<div class="row justify-content-around">
 			<% @insects.each do |item| %>
                 <div class="col-sm-12 col-md-6 col-xl-4">
                     <div class="card">
                         <div class="card-img-actions mx-1 mt-1">
-                            <img class="card-img img-fluid" src="/global_assets/images/placeholders/placeholder.jpg" alt="">
+                            <img class="card-img img-fluid" src="https://res.cloudinary.com/dxql9aygi/image/upload/v1574527162/<%= item.image %>.jpg" alt="">
                             <div class="card-img-actions-overlay card-img">
-                                <a href="/global_assets/images/placeholders/placeholder.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
+                                <a href="https://res.cloudinary.com/dxql9aygi/image/upload/v1574527162/<%= item.image %>.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
                                     <i class="icon-plus3"></i>
                                 </a>
 

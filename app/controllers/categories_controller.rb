@@ -40,6 +40,32 @@ class CategoriesController < ApplicationController
     end
 
     def update
+        category = Category.where(id: params[:id]).first
+        if category.nil?
+            render "error_pages/404.html", status: :not_found
+            return
+        end
+        
+        parent = Category.where(id: params[:category][:category_id]).first
+        while not parent.nil? do  
+            if parent.id == category.id
+                flash[:error] = "You cannot add a category as its own child..."
+                redirect_to categories_path
+                return
+            end
+            parent = parent.category
+        end
+        category.name = params[:category][:name]
+        category.category_id = params[:category][:category_id]
+        category.save
+
+        children = category.categories.to_a
+        while children.count != 0 do
+            child = children.shift
+            child.save
+            children = children | Category.where(category_id: child.id).to_a
+        end
+        redirect_to categories_path
     end
 
     def destroy

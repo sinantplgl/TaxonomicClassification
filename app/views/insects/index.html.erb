@@ -4,19 +4,34 @@
             <div class="card-body">
                 <form action="<%= insects_path %>" method="post">
                     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                    <div class="form-group">
-                        <input type="text" name="insect[name]" placeholder="Enter a name..." class="form-control" required/>
-                    </div>
-                    <div class="form-group">
-                        <select name="insect[category_id]" class="form-control">
-                            <option>Select one...</option>
-                            <% @categories.each do |item| %>
-                                <option value="<%= item.id %>"><%= item.slug %></option>
-                            <% end %>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="insect[details]" class="form-control" placeholder="Details..."></textarea>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="insect[name]" placeholder="Enter a name..." class="form-control" required/>
+                            </div>
+                            <div class="form-group">
+                                <select name="insect[category_id]" class="form-control">
+                                    <option>Select one...</option>
+                                    <% @categories.each do |item| %>
+                                        <option value="<%= item.id %>"><%= item.slug %></option>
+                                    <% end %>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="insect[details]" class="form-control" placeholder="Details..."></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <img class="mb-3" src="/global_assets/images/upload_image.png" id="img_preview" height="300" style="max-width: 100%;">
+                            <div class="form-group">
+                                <div class="uniform-uploader">
+                                    <input type="file" id="img_uploader" class="form-control-uniform" data-fouc="">
+                                    <span class="filename" style="user-select: none;">No file selected</span>
+                                    <span class="action btn btn-light" style="user-select: none;">Choose File</span>
+                                </div>
+                            </div>
+                            <input type="hidden" name="insect[image]" id="img_pub_id">
+                        </div>
                     </div>
                     <div class="d-flex justify-content-end align-items-center">
                         <button type="submit" class="btn bg-blue ml-3">Submit <i class="icon-paperplane ml-2"></i></button>
@@ -26,3 +41,6 @@
         </div>
     </div>
 </div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/assets/js/custom.js"></script>

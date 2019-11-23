@@ -23,6 +23,14 @@ class InsectsController < ApplicationController
   end
 
   def update
+    insect = Insect.where(id: params[:id]).first
+    if insect.nil?
+      render "error_pages/404.html", status: :not_found
+      return
+    end
+
+    insect.update(insect_params)
+    redirect_to insect_path(insect.id)
   end
 
   def destroy
@@ -30,6 +38,6 @@ class InsectsController < ApplicationController
 
   private
   def insect_params
-    params.require(:insect).permit(:name, :category_id, :details)
+    params.require(:insect).permit(:name, :category_id, :image, :details)
   end
 end
